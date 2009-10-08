@@ -65,9 +65,22 @@ public class AuctionMIDlet extends MIDlet implements CommandListener {
 	}
 
 
-	public void commandAction(Command arg0, Displayable arg1) {
+	public void commandAction(Command c, Displayable s) {
 		// TODO Auto-generated method stub
-		
+		if (c == mExitCommand)
+			notifyDestroyed();
+			else if (c == mLoginCommand) {
+			login();
+			}
 	}
 
+	private void login() {
+		Form loginForm = new Form("Login");
+		StringItem loginMessage;
+		loginMessage = new StringItem(null, "");
+		loginForm.append(loginMessage);
+		loginMessage.setText("Duke's Auction Login Form");
+		display.setCurrent(loginForm);
+		}
+	
 }
